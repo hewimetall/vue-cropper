@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>codesandbox</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <form
+            action="/images/add/"
+            method="POST"
+            enctype="multipart/form-data"
+            novalidate=""
+          >
+            <input
+              type="hidden"
+              name="csrfmiddlewaretoken"
+              value="8aVHiKe9wCMbOvcaR4ZNoWYxWPq3nLWQb0AxQy5ojOEPoxjNdHvRFHU7brzmMSeZ"
+            />
+            <ul class="fields">
+              <li class="required">
+                <div
+                  class="field char_field text_input"
+                  data-contentpath="title"
+                >
+                  <label for="id_title">Заголовок:</label>
+                  <div class="field-content">
+                    <div class="input">
+                      <input
+                        type="text"
+                        name="title"
+                        maxlength="255"
+                        required=""
+                        id="id_title"
+                      />
+
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="required">
+                <div
+                  class="field wagtail_image_field file_input"
+                  data-contentpath="file"
+                >
+                  <label for="id_file">Файл:</label>
+                  <div class="field-content">
+                    <div class="input">
+                      <input
+                        type="file"
+                        name="file"
+                        accept="image/*"
+                        required=""
+                        id="id_file"
+                      />
+
+                      <span></span>
+                    </div>
+
+                    <p class="help">
+                      Поддерживаемые форматы: GIF, JPEG, PNG, WEBP. Максимальный
+                      размер файла: 10,0&nbsp;МБ.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="required">
+                <div
+                  class="field collection_choice_field select_with_disabled_options"
+                  data-contentpath="collection"
+                >
+                  <label for="id_collection">Коллекция:</label>
+                  <div class="field-content">
+                    <div class="input">
+                      <select name="collection" id="id_collection">
+                        <option value="1">Root</option>
+
+                        <option value="2">editor</option>
+
+                        <option value="3"
+                          >&nbsp;&nbsp;&nbsp;&nbsp;↳ город</option
+                        >
+                      </select>
+
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="   ">
+                <div
+                  class="field tag_field admin_tag_widget"
+                  data-contentpath="tags"
+                >
+                  <label for="id_tags">Тег:</label>
+                  <div class="field-content">
+                    <div class="input">
+                      <input
+                        type="text"
+                        name="tags"
+                        id="id_tags"
+                        style="display: none;"
+                      />
+                      <ul
+                        class="tagit ui-widget ui-widget-content ui-corner-all"
+                      >
+                        <li class="tagit-new">
+                          <input
+                            type="text"
+                            class="ui-widget-content ui-autocomplete-input"
+                            autocomplete="off"
+                          />
+                        </li>
+                      </ul>
+
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <input
+                type="hidden"
+                name="focal_point_x"
+                class="focal_point_x"
+                id="id_focal_point_x"
+              />
+
+              <input
+                type="hidden"
+                name="focal_point_y"
+                class="focal_point_y"
+                id="id_focal_point_y"
+              />
+
+              <input
+                type="hidden"
+                name="focal_point_width"
+                class="focal_point_width"
+                id="id_focal_point_width"
+              />
+
+              <input
+                type="hidden"
+                name="focal_point_height"
+                class="focal_point_height"
+                id="id_focal_point_height"
+              />
+
+              <li class="">
+                <div
+                  class="field char_field text_input"
+                  data-contentpath="caption"
+                >
+                  <label for="id_caption">Caption:</label>
+                  <div class="field-content">
+                    <div class="input">
+                      <input
+                        type="text"
+                        name="caption"
+                        maxlength="1024"
+                        id="id_caption"
+                      />
+
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="   ">
+                <div
+                  class="field boolean_field checkbox_input"
+                  data-contentpath="watermark"
+                >
+                  <label for="id_watermark">Watermark:</label>
+                  <div class="field-content">
+                    <div class="input">
+                      <input
+                        type="checkbox"
+                        name="watermark"
+                        id="id_watermark"
+                      />
+
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="">
+                <div
+                  class="field model_choice_field select"
+                  data-contentpath="author_snippet"
+                >
+                  <label for="id_author_snippet">Автор из шаблона:</label>
+                  <div class="field-content">
+                    <div class="input">
+                      <select name="author_snippet" id="id_author_snippet">
+                        <option value="" selected="">---------</option>
+
+                        <option value="1">Голубые Ели</option>
+                      </select>
+
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li><input type="submit" value="Save" class="button" /></li>
+            </ul>
+          </form>
+        </div>
+        <div class="col-6">
+          <div id="app"></div>
+        </div>
+      </div>
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
